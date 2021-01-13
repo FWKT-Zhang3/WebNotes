@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.8em;
+        }
+    </style>
+</head>
+<body>
+    <h1>JS的书写</h1>
+    <ol>
+        分成三种方式：
+        <li>行内式(强烈不推荐)
+            <ul>
+                <li>a标签
+                    <ul>
+                        <li>因为a标签本身就有行为出现</li>
+                        <li>当点击的时候需要区分是跳转连接还是执行JS代码</li>
+                        <li>在href属性里写 javascript: JS代码</li>
+                        <li><a href="https://www.baidu.com">点我试试</a></li>
+                        <li><div href="https://www.baidu.com">再点我试试</div></li>
+                        <li><a href="javascript: alert('Hello World!')">a标签中的JS</a></li>
+                    </ul>
+                </li>
+                <li>非a标签
+                    <ul>
+                        <li>因为没有自己的行为，所以要给他加个行为(事件)</li>
+                        <li><div style="width: 100px; height: 100px;background-color: blueviolet; color: white;" onclick="alert('Hello World!')">这个div加了onclick属性</div></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>内嵌式(不推荐)
+            <ul>
+                <li>在页面内书写一个script标签</li>
+                <li>把JS代码书写在标签的内部</li>
+                <li>不需要任何行为，只要打开页面就会执行</li>
+                <li>一个页面内可以书写无限个script标签，会按照从上到下的顺序依次执行</li>
+                <li>理论上script标签可以放在页面的任何位置，推荐放到head或body的末尾</li>
+            </ul>
+        </li>
+        <li>外链式(推荐)
+            <ul>
+                <li>把JS代码写在一个.js后缀的文件里面</li>
+                <li>在页面上通过script标签的src属性引入页面</li>
+                <li>当一个script标签被当做外链式使用的时候，写在标签对里面的内容没有意义</li>
+            </ul>
+        </li>
+    </ol>
+    <script>
+        alert("内嵌式JS代码")
+        function func(a) {
+            console.log(a)
+            arguments[0] = 2
+            console.log(a)
+        }
+
+        var b = 100
+        func(b)
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>
