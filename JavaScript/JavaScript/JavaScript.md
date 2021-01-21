@@ -869,6 +869,16 @@ JS自带的一些操作数组的方法
 | lastIndexOf(数据)                                            | 反向查看指定数据的索引                                       | 索引，如果没有则-1   |
 | arr.forEach(function (item, index, arr) {})                  | item：数组的每一项，index：数组每一项的索引，arr：原始数组。取代for循环的作用，遍历数组 | 无                   |
 | arr.map(function(item, index, arr) {})                       | 映射数组                                                     | 新的数组             |
+| arr.filter(function(item, index, arr) {})                    | 筛选                                                         | 新数组               |
+| arr.every(function(item, index, arr) {})                     | 判断是否所有数据满足条件                                     | Boolean              |
+| arr.some(function(item, index, arr) {})                      | 判断是否存在数据满足条件                                     | Boolean              |
+| **copyWithin(目标位置，开始索引，结束索引)**                 | **使用数组里面的内容替换数组里面的内容**                     | **新的数组**         |
+| **fill(要填充的数据，开始索引，结束索引)**                   | **前提：数组要有length。置顶数据填充数组**                   | **填充好的数组**     |
+| **includes(数据)**                                           | **查看数组中是否有这个数据**                                 | **Boolean**          |
+| **flat(数字)**                                               | **拍平数组。扁平化多少层，默认1。用Infinity拍平到一维数组（2018）** | **新的数组**         |
+| **arr.flatMap(function(item, index, arr) {})**               | **拍平一层数组。一边拍平一边映射**                           | **新的数组**         |
+| **arr.find(function (item) {})**                             | **根据条件查找数据**                                         | **找到的数据**       |
+| **arr.findIndex(function (item) {})**                        | **根据条件查找数据**                                         | **找到的数据的索引** |
 
-
+（粗体为ES6新函数）
 
