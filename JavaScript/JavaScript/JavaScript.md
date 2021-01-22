@@ -882,3 +882,253 @@ JS自带的一些操作数组的方法
 
 （粗体为ES6新函数）
 
+
+
+## 19 字符串
+
+字符串的创建：
+
+1. var str = 'hello world'; var str = "hello world"
+2. var str = new String("hello world")
+
+两种方法创建的字符串除了在控制台打印的时候有区别，使用起来没有任何区别
+
+![image-20210122100130224](JavaScript.assets\image-20210122100130224.png)
+
+ 因为字符串是一个包装数据类型
+
+* 一个数据当你使用的时候会自动转换成复杂数据类型
+* 当你使用完毕，自动转换回基本数据类型
+
+点语法：
+
+* obj.name 便是访问 obj 空间内部的name成员
+* 因为obj是一个复杂数据类型，再堆内存里面有一个空间
+* str.length也可以执行
+  * 访问str这个空间内部的length成员
+  * 但是str是一个基本数据类型，在堆里面没有空间
+  * 因为当使用str.length的时候
+  * 会自动转换成复杂数据类型，在堆内存里面开辟一个空间
+  * 按照索引把每一位字符排列进去
+  * 等访问结束，这个开辟的临时空间会销毁
+
+toString()
+
+* 转字符串的
+* 数字、布尔可以转，字符串也可以
+* 因为数字、布尔和字符串都是包装数据类型
+* undefined 和 null不是包装数据类型
+
+字符串的索引只能获取不能设置（只读） - 不会报错，只是设置不成功 - 基本数据类型不会被改变，只能覆盖（数值或字符串相加的操作也没有改变，只是将结果重新赋值了）
+
+**模板字符串**
+
+ES2015（ES6）以前，拼接字符串使用 “+”
+
+ES6的标准中推出了一种新的字符串定义方式，使用反引号（`` - 波浪键）
+
+反引号定义的字符串叫做`模板字符串`
+
+和普通字符串的区别：
+
+* 普通字符串不能换行，模板字符串可以换行书写
+* 普通字符串不能直接解析变量
+* 兼容性问题，IE低版本不支持，但是打包时会自动转
+
+```javascript
+var str = "hello world"
+var str1 = `hello 
+
+
+world`
+
+var age = 20
+
+var str2 = "我今年 " + age + " 岁了"
+var str3 = `I'm ${ age } years old`
+```
+
+
+
+**字符串的常用方法：**
+
+**1 concat** 
+
+将两个或多个字符的文本**组合**起来，返回一个新的字符串。
+
+> var a = "hello";
+>
+> var b = ",world";
+>
+> var c = a.concat(b);
+>
+> alert(c);
+>
+> //c = "hello,world"
+
+**2 indexOf**
+
+返回字符串中一个子串第一处出现的**索引**（从左到右搜索）。如果没有匹配项，返回 -1 。
+
+> var index1 = a.indexOf("l");
+>
+> //index1 = 2
+>
+> var index2 = a.indexOf("l",3);
+>
+> //index2 = 3
+
+**3 charAt & charCodeAt()** 
+
+返回**指定位置的字符/字符编码（utf-8）**。
+
+> var get_char = a.charAt(0);
+>
+> //get_char = "h"
+
+**4 lastIndexOf**
+
+返回字符串中一个子串**最后一处出现的索引**（从右到左搜索），如果没有匹配项，返回 -1 。
+
+> var index1 = lastIndexOf('l');
+>
+> //index1 = 3
+>
+> var index2 = lastIndexOf('l',2)
+>
+> //index2 = 2
+
+**5 match**
+
+检查一个字符串**匹配一个正则表达式**内容，如果没有匹配返回 null。
+
+> var re = new RegExp(/^\w+$/);
+>
+> var is_alpha1 = a.match(re);
+>
+> //is_alpha1 = "hello"
+>
+> var is_alpha2 = b.match(re);
+>
+> //is_alpha2 = null 
+
+**6 substring**
+
+返回字符串的一个子串，传入参数是**起始位置和结束位置**。
+
+> var sub_string1 = a.substring(1);
+>
+> //sub_string1 = "ello"
+>
+> var sub_string2 = a.substring(1,4);
+>
+> //sub_string2 = "ell"
+
+**7 substr**
+
+返回字符串的一个子串，传入参数是起始位置和长度
+
+> var sub_string1 = a.substr(1);
+>
+> //sub_string1 = "ello"
+>
+> var sub_string2 = a.substr(1,4);
+>
+> //sub_string2 = "ello"
+
+**8 replace**
+
+用来查找匹配一个**正则表达式的字符串**，然后使用新字符串代替匹配的字符串。
+
+> var result1 = a.replace(re,"Hello");
+>
+> //result1 = "Hello"
+>
+> var result2 = b.replace(re,"Hello");
+>
+> //result2 = ",world"
+
+**9 search**
+
+执行一个正则表达式匹配查找。如果查找成功，返回字符串中匹配的索引值。否则返回 -1 。
+
+> var index1 = a.search(re);
+>
+> //index1 = 0
+>
+> var index2 = b.search(re);
+>
+> //index2 = -1
+
+**10 slice**
+
+提取字符串的一部分，并返回一个新字符串（与 substring 相同，但是参数可以是负数）。
+
+> var sub_string1 = a.slice(1);
+>
+> //sub_string1 = "ello"
+>
+> var sub_string2 = a.slice(1,4);
+>
+> //sub_string2 = "ell"
+
+**11 split**
+
+通过将字符串划分成子串，将一个字符串做成一个字符串数组。第二个参数，可以选择保留多少个
+
+> var arr1 = a.split("");
+>
+> //arr1 = [h,e,l,l,o]
+
+**12 length** 
+
+返回字符串的长度，所谓字符串的长度是指其包含的字符的个数。
+
+> var len = a.length();
+>
+> //len = 5
+
+**13 toLowerCase** 
+
+将整个字符串转成小写字母。
+
+> var lower_string = a.toLowerCase();
+>
+> //lower_string = "hello"
+
+**14 toUpperCase**
+
+将整个字符串转成大写字母。
+
+> var upper_string = a.toUpperCase();
+>
+> //upper_string = "HELLO"
+
+**15 includes**
+
+判断字符串里是否包含该字符串片段
+
+> var bool = str.includes("字符串片段")
+
+**16 trim/trimStart(trimLeft)/trimEnd(trimRight)**
+
+去除首尾/首/尾空格
+
+**17 padStart/padEnd**
+
+从前面/后面字符串补齐
+
+> str.padStart(目标长度，”填充字符串“)
+
+**18 startsWith/endsWith**
+
+判断该字符串是不是以某个片段开始/结束
+
+> str.startsWith("字符串")
+
+
+
+
+
+
+
