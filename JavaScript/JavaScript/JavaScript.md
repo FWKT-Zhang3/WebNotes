@@ -1182,3 +1182,16 @@ JSON.stringify(要转换的数组或对象)：把 JS 格式的数组或者对象
    * sessionStorage.getItem("名字") - 没有则返回null
    * sessionStorage.removeItem("名字")
    * sessionStorage.clear()
+
+## 22 数学方法
+
+1. random
+2. round
+3. ceil
+4. floor
+5. pow(数字，幂数) - power - 幂
+6. sqrt - 算术平方根（只有正数）
+7. abs
+8. max
+9. min
+10. PI - 属性 - 近似于PI的值
