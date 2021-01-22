@@ -1149,3 +1149,36 @@ JSON.stringify(要转换的数组或对象)：把 JS 格式的数组或者对象
 
 `.json`文件 - 只能书写json格式的内容
 
+## 21 本地缓存
+
+把一些数据记录在浏览器中 - 多种本地缓存之一
+
+1. localStorage
+2. sessionStorage
+
+作用：浏览器给我们提供的一些本地存储数据的机制
+
+区别：
+
+* localStorage - 永久缓存，除非手动删除
+* sessionStorage - 会话缓存，关闭浏览器就没有了
+
+共同点：
+
+* 只能存储==**字符串格式**==的数据 - 可以使用json
+* 取出来的数据就变成字符串了
+
+查看：浏览器控制台 - application - Local Storage/Session Storage
+
+语法：
+
+1. localStorage
+   * localStorage.setItem("名字"， "值")
+   * localStorage.getItem("名字") - 没有则返回null
+   * localStorage.removeItem("名字")
+   * localStorage.clear()
+2. sessionStorage
+   * sessionStorage.setItem("名字"， "值")
+   * sessionStorage.getItem("名字") - 没有则返回null
+   * sessionStorage.removeItem("名字")
+   * sessionStorage.clear()
