@@ -1213,3 +1213,79 @@ JSON.stringify(要转换的数组或对象)：把 JS 格式的数组或者对象
 ## 24 保留小数
 
 toFixed(位数) - 返回值字符串 - 如果不够指定小数位，用0补齐 - 四舍五入
+
+## 25 时间对象
+
+内置构造函数 `Date()` - 用来创建时间对象
+
+1. 创建当前时间对象
+
+   var time = new Date()
+
+   返回值：当前终端的时间
+
+2. 创建指定日期事件对象
+
+   * 传递数字：年，月（从零开始），日，时，分，秒，毫秒 - 至少传递两个参数，传一个参数的时候，获取的是格林威治时间（计算机元年，Thu 1970 - 01 - 01） - 会自动进位
+
+     var time = new Date(2021, 0, 1, 12, 30, 1, 1)
+
+   * 传递字符串："yyyy-mm-dd HH:MM:SS"  /   "yyyy/mm/dd HH:MM:SS"
+
+     var time = new Date("2021-01-23 10:28:00")
+
+**获取/设置时间信息：**
+
+1. getFullYear()/setFullYesr()
+2. getMonth()/setMonth()
+3. getDate()/setDate(*从零开始*)
+4. getHours()/setHours()
+5. getMinutes()/setMinutes()
+6. getSeconds()/setSeconds()
+7. getMilliseconds()/setMilliseconds()
+8. getDay() - 周几 - 0表示周日
+9. getTime() - 改时间对象的时间戳   /   setTime()
+
+时间戳：
+
+* 格林威治时间：1970年1月1日0点0分0秒 - 计算机元年
+* 时间戳即 - 时间对象到格林威治时间的**毫秒数**
+
+**获取时间差：**使用时间戳相减
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
