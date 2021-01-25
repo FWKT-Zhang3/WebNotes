@@ -1363,5 +1363,34 @@ window - 一个对象，打开一个页面就有一个 window，全局定义的�
 2. window.onscroll = function() {} - 浏览器滚动条滚动的时候触发（无论横向还是纵向）
 3. window.onresize = function() {} - 浏览器可视窗口改变的时候触发
 
+### 27.7 浏览器卷去的高度和宽度
 
+当页面比窗口宽或者高的时候，会有一部分是随着滚动被隐藏的。
+
+上面隐藏的叫做 **卷去的高度**
+
+左边隐藏的叫做 **卷去的宽度**
+
+**获取卷去的高度：**
+
+1. document.documentElement.scrollTop - 必须要==有== DOCTYPE 标签
+2. document.body.scrollTop - 必须==没有== DOCTYPE 标签
+
+兼容写法
+
+var scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+
+**获取卷去的宽度：**
+
+1. document.documentElement.scrollLeft - 必须要==有== DOCTYPE 标签
+2. document.body.scrollLeft - 必须==没有== DOCTYPE 标签
+
+### 27.8 控制浏览器滚动
+
+scrollTo(x坐标，y坐标)
+
+- 如果传递数字，必须两个参数 - 瞬间定位，无滚动过程
+-  可以传递对象，对象中可以写一个或两个参数，可以设定平滑滚动 - behavior: "smooth" / "instant"
+
+## 28 DOM
 
