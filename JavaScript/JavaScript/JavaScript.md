@@ -1394,3 +1394,26 @@ scrollTo(x坐标，y坐标)
 
 ## 28 DOM
 
+Document Object Model 文档对象模型
+
+![image-20210125174211084](JavaScript.assets\image-20210125174211084.png)
+
+其实就是操作文档的一些能力
+
+我们可以操作：
+
+* HTML元素（增删改查）
+* 元素样式
+* 元素属性
+* 元素添加事件
+
+### 28.1 DOM 树的了解：
+
+![image-20210125174403034](JavaScript.assets\image-20210125174403034.png)
+
+### 28.2 获取DOM元素
+
+1. 非常规标签
+   * HTML - document.doc1umentElement
+   * head - document.head
+   * body - document.body
