@@ -340,7 +340,7 @@ null === undefined
    }
    ```
 
-## 9.循环结构语句
+## 9. 循环结构语句
 
 1. 初始值：作为循环的开始
 2. 条件判断：决定要不要继续循环
@@ -1417,3 +1417,40 @@ Document Object Model 文档对象模型
    * HTML - document.doc1umentElement
    * head - document.head
    * body - document.body
+2. 常规标签 - 不是不能获取非常规标签，只是一般不这么用
+   * getElementById() - 如果没有找到匹配的元素，返回null
+   * getElementsByTagName() - 返回伪数组
+   * getElementsByClassName() - 返回伪数组
+   * getElementsByName() - 返回伪数组
+   * querySelector("选择器") - 能在 css 里面写的选择器，这里都可以写 - 返回找到的第一个内容 - IE低版本不支持
+   * querySelectorAll("选择器") - 返回伪数组 - IE低版本不支持 - 获取的元素可以用forEach
+
+### 28.3 操作元素属性
+
+H5标准中，**H5自定义属性**以“data-”开头
+
+1. 原生属性 - 元素.属性名 （注意，**class属性**除外 - 因为class是JS中的关键字 - 元素.ClassName）
+
+2. 自定义属性：- 也可以操作原生属性和H5自定义属性
+
+   * setAttribute("属性名", "属性值")
+   * getAttribute("属性名")
+   * removeAttribute("属性名")
+
+3. H5自定义属性 - 每个元素有个`dataset`属性，里面包含了所有H5自定义属性，其中的key，不带“data-”
+
+   ```javascript
+   // 设置元素标签上的data-a属性，值为1
+   div.dataset.a = 1
+   
+   // 删除元素标签上的data-a属性
+   delete div.dataset.a
+   ```
+
+   H5中元素身上有个“classList”属性，包含了元素身上设置的所有类名
+
+### 28.4 操作元素文本内容
+
+1. innerHTML - 操作元素的超文本内容 
+2. innerText - 操作元素的文本内容 - 标签内容不获取
+3. value - 操作表单元素的value属性
