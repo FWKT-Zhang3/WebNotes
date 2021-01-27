@@ -1485,3 +1485,37 @@ function getStyle(ele, style) {
 **设置元素样式** - 只能设置元素行内样式 - 前段 JS 理论上是不可以设置元素的非行内样式
 
 - 元素.style.样式名 = 值
+
+### 28.6 DOM 节点
+
+* DOM 节点，就是构成页面的每一个组成部分
+* 元素/注释/文本 等内容都是一个一个的节点
+* 常用的四种节点：
+  * 元素节点：页面中的每一个标签
+  * 文本节点：写在标签里面的文本内容
+  * 属性节点：写在元素上的每一个属性
+  * 注释节点：页面中书写的注释内容
+
+![image-20210128021257293](JavaScript.assets\image-20210128021257293.png)
+
+![image-20210128021319107](JavaScript.assets\image-20210128021319107.png)
+
+![image-20210128021851408](JavaScript.assets\image-20210128021851408.png)
+
+![image-20210128021931997](JavaScript.assets\image-20210128021931997.png)
+
+![image-20210128022023307](JavaScript.assets\image-20210128022023307.png)
+
+![image-20210128022124865](JavaScript.assets\image-20210128022124865.png)
+
+操作节点：
+
+1. childNodes - 元素.childNodes - 获取元素的所有**子节点**（伪数组）
+2. children - 元素.children - 获取元素的所有**子元素节点**（伪数组）
+3. firstChild - 元素.firstChild - 获取元素的第一个**子节点** （ - lastchild）
+4. firstElementChild - 元素.firstElementChild - 获取元素的第一个**子元素节点** （ - lastElementChild）
+5. previousSibling - 元素.previousSibling - 元素的上一个**兄弟节点** （ - nextSibling）
+6. previousElementSibling - 元素.previousElementSibling - 元素的上一个**兄弟元素节点** （ - nextElementSibling）
+7. parentNode - 元素.parentNode - 元素的**父节点**
+8. parentElementNode - 元素.parentElementNode - 元素的**父元素节点**
+9. attributes - 元素.attributes - 元素的所有**属性节点**
