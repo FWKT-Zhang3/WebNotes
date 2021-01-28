@@ -1519,3 +1519,16 @@ function getStyle(ele, style) {
 7. parentNode - 元素.parentNode - 元素的**父节点**
 8. parentElementNode - 元素.parentElementNode - 元素的**父元素节点**
 9. attributes - 元素.attributes - 元素的所有**属性节点**
+
+### 28.7 节点属性
+
+* **属性节点：**
+  * 元素身上的属性
+  * 每一个属性是一个节点
+* **节点属性：**
+  * 用来描述节点的信息
+  * 不同节点有相同的属性名，但是值不一样
+* **节点属性有三个：**
+  1. nodeType - 以数字形式表示节点类型
+  2. nodeName
+  3. nodeValue

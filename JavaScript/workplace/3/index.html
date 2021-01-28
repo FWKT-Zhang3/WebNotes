@@ -6,16 +6,25 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>This is a test File</h1>
+    <!-- <h1>This is a test File</h1>
     <p>Testing</p>
     <button id = "btn">aa</button>
-    <script src="js/script.js"></script>
+    <script src="js/script.js"></script> -->
+
+    <div id="div_id" class="div_class">
+        <!-- 注释 -->
+        hello world
+    </div>
     <script>
-        var fn = function() {
-            console.log("push button")
-        }
+        // var fn = function() {
+        //     console.log("push button")
+        // }
         
-        btn.onclick = fn
+        // btn.onclick = fn
+
+        var div = document.querySelector("div")
+        var attr = div.childNodes
+        console.log(attr[0])
     </script>
 </body>
 </html>
