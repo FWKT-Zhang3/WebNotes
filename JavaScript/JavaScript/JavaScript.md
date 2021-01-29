@@ -1530,5 +1530,31 @@ function getStyle(ele, style) {
   * 不同节点有相同的属性名，但是值不一样
 * **节点属性有三个：**
   1. nodeType - 以数字形式表示节点类型
-  2. nodeName
-  3. nodeValue
+     - 元素节点：1
+     - 属性节点：2
+     - 文本节点：3
+     - 注释节点：8
+  2. nodeName - 节点的名称
+     - 元素节点：大写标签名
+     - 属性节点：属性名
+     - 文本节点：#text
+     - 注释节点：#comment
+  3. nodeValue - 节点的值
+     - 元素节点：null
+     - 属性节点：属性值
+     - 文本节点：文本内容（包括换行和空格）
+     - 注释节点：注释内容（包括换行和空格）
+* 创建节点：
+  1. createElement()
+  2. createTextNode()
+  3. createComment()
+* 插入节点：
+  1. appendChild()
+  2. insertBefore() - 父节点.insertBefore(要插入的节点，插入到哪个子节点之前)
+* 删除节点：
+  1. removeChild()
+  2. remove()
+* 替换节点：
+  1. replaceChild()
+* 克隆节点：
+  1. cloneNode() - 参数默认是false：不克隆后代节点，选true，克隆所有子节点
