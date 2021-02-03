@@ -1577,7 +1577,10 @@ function getStyle(ele, style) {
 
 ### 28.9 获取元素偏移量
 
+获取元素偏移量 - 一个元素相对于参考系的坐标位置
 
+1. offsetParent -  拿到该元素获取偏移量的时候的参考父级
+2. offsetLeft / offsetTop
 
 > **知识点补充：**
 >
@@ -1593,3 +1596,81 @@ function getStyle(ele, style) {
 >
 > margin合并问题也可以用bfc解决，但是会改变HTML结构，所以在实际应用时,在margin合并这个问题上，我们一般不用bfc，而是通过只设置上面的元素的margin-bottom来解决距离的问题
 
+### 28.10 获取浏览器窗口尺寸
+
+* BOM 级别的获取 - 包含滚动条
+  * innerWidth
+  * innerHeight
+* DOM级别的获取 - 页面部分的尺寸
+  * document.documentElement.clientWidth
+  * document.documentElement.clientHeight
+
+### 28.11 元素的常用事件（JS自带的原生事件全小写）
+
+1. 鼠标事件
+
+   1.  click - 鼠标左键单击
+   2. dblclick - 鼠标左键双击
+   3. contextmenu - 鼠标右键单击
+   4. mousewheel - 滚轮事件
+   5. mousedown - 鼠标按下 - 不光是左键
+   6. mouseup - 鼠标抬起
+   7. mousemove - 鼠标移动
+   8. mouseover - 鼠标移入
+   9. mouseout - 鼠标移出
+   10. mouseenter - 鼠标移入
+   11. mouseleave - 鼠标移出
+
+2. 键盘事件 - 不是所有元素都能触发
+
+   * 表单元素（有选中效果）
+   * document
+   * window
+
+   1. keydown - 键盘按下
+   2. keyup - 键盘抬起
+   3. keypress - 键盘按下 - 必须要能输入按键内容到文本框的才会触发 - shift不会触发 - 中文输入法也不会触发
+
+3. 浏览器事件
+
+   1. load - 页面加载完毕
+   2. scroll - 滚动
+   3. resize - 尺寸改变
+   4. offline - 网络断开
+   5. online - 网络恢复
+   6. hashchange - hash值改变的时候
+
+4. 表单事件
+
+   1. change - 表单内容改变 - 表单失焦的时候和聚焦的时候不一样才会触发
+   2. input - 只要在表单输入内容就会触发
+   3. focus - 表单聚焦
+   4. blur - 表单失焦
+   5. submit - 表单提交事件 - 绑定给form标签使用的，当点击`form标签内的button`时触发
+   6. reset - 表单充重置事件 - 绑定给form标签使用的，当点击`form标签内的reset`时触发
+
+5. 拖拽事件 - 一般元素想触发拖拽行为，需要给元素加属性：draggable
+
+   * 完成一个完整的拖拽需要两个元素
+     * 拖拽元素
+     * 目标元素
+
+   1. dragstart - 拖拽开始 - 绑定给拖拽元素
+   2. drag - 拖拽中 - 绑定给拖拽元素
+   3. dragend - 拖拽结束 - 绑定给拖拽元素
+   4. dragenter - 拖拽（光标）进入目标元素的时候 - 绑定给目标元素
+   5. dragleave - 拖拽（光标）离开目标元素的时候 - 绑定给目标元素
+   6. dragover - 拖拽元素在目标元素里面移动 - 绑定给目标元素
+   7. drop - 拖拽元素在目标元素内放手（鼠标） - 绑定给目标元素 - 必须要在dragover里面阻止默认行为
+
+6. 触摸事件 - 必须要在移动端
+
+   1. touchstart - 触摸开始
+   2. touchmove - 触摸移动
+   3. touchend - 触摸结束
+
+7. 其他事件
+
+   1. transitionend - 过度结束 - 当有过度属性的时候 - 过度几个属性触发几次
+   2. selectstart - 开始选择 - 当在页面中框选文字时触发
+   3. visibilitychange - 窗口隐藏和显示 - 只能绑定给document
