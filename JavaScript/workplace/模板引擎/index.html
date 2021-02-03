@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <script src="./js/template-web.js"></script>
+
+    <!-- 定义模板 -->
+    <script type="text/template" id="tmp">
+    <!-- 简单的模板 -->
+    <h1>模板中的文字</h1>
+    <p>{{ title }}</p>
+    </script>
+    
+    <script>
+        /*
+        1. 自己书写一个模板 - 需要把 display 改成 none
+            => script 标签来定义模板
+             -> 从来不会给 script 标签添加样式 - 防止模板display属性被改
+             -> script 标签里面书写的内容本来在页面上就不显示
+            => 需要添加一个 type 属性，推荐属性值写成 text/html 或者 text/template
+             -> 只要不写成 text/javascript，script 标签里面的内容就不会识别成 JS 代码
+             -> 写成 text/html 或者 text/template 会有代码提示/补全
+        2. 在 JS 里面使用模板
+            => 导入第三方文件
+            => 使用 template 方法
+             -> 语法：template(模板标签的 id 名, 数据)
+             -> 返回值：模板标签里面的html结构，是一个字符串
+        */ 
+       var str = template("tmp", {title: "abc"})
+
+       document.querySelector(".box1").innerHTML = str
+    </script>
+</body>
+</html>

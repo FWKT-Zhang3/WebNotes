@@ -1674,3 +1674,26 @@ function getStyle(ele, style) {
    1. transitionend - 过度结束 - 当有过度属性的时候 - 过度几个属性触发几次
    2. selectstart - 开始选择 - 当在页面中框选文字时触发
    3. visibilitychange - 窗口隐藏和显示 - 只能绑定给document
+
+## 29. 模板引擎
+
+什么是模板引擎
+
+* 帮助快速渲染页面
+* 三体分离（结构 - 样式 - 行为 分开）
+* 一般都是第三方文件引入使用
+
+常见的模板引擎
+
+* art-template - 前后端都可以使用
+* underscroll - 后端 JS 不能用
+* e.js - 后端 JS 不能用
+* template - 后端 JS 不能用
+
+art-template特点
+
+* HTML结构和 JS 代码分离
+* 有自己独立的语法，但是也可以使用原生 JS 的语法
+* 有自己独立的渲染机制
+
+![image-20210204021350372](JavaScript.assets\image-20210204021350372.png)

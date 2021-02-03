@@ -227,6 +227,7 @@
                 // 如果不知道，还是不要使用
                 // var secondList = dataList[id - 1].list
                 
+                // 这里直接拼接字符串，如果有其他业务逻辑的话（添加事件），创建节点比较好
                 var str = ""
                 secondList.forEach(function(item) {
                     str = `
@@ -238,6 +239,12 @@
                     `
                 })
                 goodsbox.innerHTML = str 
+
+                // 如果是滚动加载页面，在绑定鼠标滚轮事件的时候，
+                // 可能会出现滚动一次, 加载很多次的情况出现
+                // - 滚动的那一瞬间可能会触发多次滚动事件
+                // - 可以加个flag，true的时候加载，加载完变false，
+                // - 在加载页面的函数里，加载完页面再把它变成true
             }
         })
     </script>
