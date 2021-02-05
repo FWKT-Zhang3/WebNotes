@@ -1907,3 +1907,9 @@ ul.onclick = function (e) {[
 * form 标签 - 自带表带提交
 * 框选 - 自带框选效果
 * 右键单击 - 自动弹出菜单
+* ...
+
+1. 在同类型事件里面进行阻止 - 例如在 a 标签的点击事件里面阻止自动跳转
+   * e.preventDefault() -  标准浏览器
+   * e.returnValue = false - IE 低版本
+   * return false - 有的事件好用有的事件不好用
