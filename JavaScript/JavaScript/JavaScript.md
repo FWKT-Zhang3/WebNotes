@@ -1728,13 +1728,13 @@ art-template特点
 
 我们提前和浏览器约定好一些行为，当用户在浏览器触发这些行为的时候，有一个事件处理函数执行
 
-**事件三要素：**
+### 30.1 **事件三要素：**
 
 * 事件源：在谁的身上绑定事件
 * 事件类型：什么事件
 * 事件处理函数：当行为发生的时候，执行哪一个函数
 
-**事件绑定分类：**
+### 30.2 **事件绑定分类：**
 
 1.  dom0级 事件
    
@@ -1746,7 +1746,7 @@ art-template特点
    1.  addEventListener() - 标准浏览器使用 - 事件源.addEventListener("事件类型"，事件处理类型) - 可以同时给一个事件绑定多个事件处理函数 - 顺序绑定顺序执行
    2.  attachEvent() - IE低版本 - 事件源.addEventListener("on事件类型"，事件处理类型) - 可以同时给一个事件绑定多个事件处理函数 - 顺序绑定倒序执行
 
-**事件解绑：**
+### 30.3 **事件解绑：**
 
 1. 解绑dom0级事件：直接赋值为 `null` - div.onclick = null
 2. 解绑dom2级事件：
@@ -1776,7 +1776,7 @@ function on(ele, type, handler) {
 }
 ```
 
-**事件对象：**
+### 30.4 **事件对象：**
 
 ![image-20210205180905431](JavaScript.assets\image-20210205180905431.png)
 
@@ -1797,7 +1797,7 @@ div.onclick = function (e) {
 }
 ```
 
-**鼠标事件的事件对象信息：**
+### 30.5 **鼠标事件的事件对象信息：**
 
 1. 按下按键：
    * 0 - 左键
@@ -1810,7 +1810,7 @@ div.onclick = function (e) {
 
 > 代码运行比DOM快
 
-**键盘事件的事件对象信息：**
+### 30.6 **键盘事件的事件对象信息：**
 
 1. 按下的是哪==**一个**==按键
    1. 事件对象里面有一个`key` 属性表示按下的那个按钮 - IE 低版本不支持
@@ -1821,13 +1821,89 @@ div.onclick = function (e) {
    * shiftKey
    * metaKey - IE 不支持
 
-## 31. 事件的传播
+### 30.7 事件的传播
 
 当你在一个元素上触发行为的时候，会按照 `结构父级` 的顺序向上传播行为，直到 `window` 为止
 
+* 当事件触发的时候，会按照结构富姐的顺序向上传递同类型事件
+* 事件对象里面有一个信息叫做 `path`，表示当前事件传播的途径
+
 ![image-20210206002115330](JavaScript.assets\image-20210206002115330.png)
 
+### 30.8 事件的目标、冒泡和捕获
 
+1. 目标 - 准确触发事件的那个元素 - target
 
+   ![image-20210206003411417](JavaScript.assets\image-20210206003411417.png)
 
+   ```javascript
+   var target = e.target || e.srcElement
+   ```
 
+2. 冒泡
+
+   ![image-20210206003809398](JavaScript.assets\image-20210206003809398.png)
+
+3. 捕获
+
+   ![image-20210206003955686](JavaScript.assets\image-20210206003955686.png)
+
+使用 `addEventListener` 方法的第三个参数决定事件是按照 冒泡 还是捕获来执行
+
+* false：冒泡 - 默认值
+* true：捕获
+
+### 30.9 移入、移出事件的区别
+
+1. mouseover / mouseout
+2. mouseenter / mouseleave
+
+* 行为：都是移入和移出行为
+* 事件：mouseenter / mouseleave 不会进行事件传播
+
+### 30.10 阻止事件传播
+
+1. e.stopPropagation() - 标准浏览器
+2. e.cancelBubble = true - IE 低版本
+
+```javascript
+兼容写法：
+// 1
+if (e.stopPropagation) {} else {}
+// 2
+try {e.stopPropagation()} catch (error) {}
+```
+
+### 30.11 事件委托
+
+利用事件冒泡，把子元素的事件绑定在一个共同的父元素上
+
+1. 循环绑定事件
+2. 事件委托 - 把子集身上需要绑定的事件绑定给一个共同的结构父级 - 使用target来判断点击的元素
+
+```javascript
+ul.onclick = function (e) {[
+    e = e || window.event
+    // target 就是点击的元素
+    var target = e.target || e.srcElement
+    
+    if (target.nodeName === "LI") {
+        console.log("点击的是LI", target)
+    }
+]}
+```
+
+优点：
+
+* 减少元素的事件绑定
+* 减少 DOM 操作，提高性能
+* 对于新加进来的元素也可以执行事件，不需要重新绑定
+
+### 30.12 浏览器默认行为
+
+浏览器默认行为：不需要手动绑定，本身就带有的事件行为
+
+* a 标签 - 自带点击行为
+* form 标签 - 自带表带提交
+* 框选 - 自带框选效果
+* 右键单击 - 自动弹出菜单
