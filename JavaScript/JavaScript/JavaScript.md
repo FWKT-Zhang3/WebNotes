@@ -1776,3 +1776,58 @@ function on(ele, type, handler) {
 }
 ```
 
+**事件对象：**
+
+![image-20210205180905431](JavaScript.assets\image-20210205180905431.png)
+
+![image-20210205180941926](JavaScript.assets\image-20210205180941926.png)
+
+如何获取事件对象：
+
+* 标准浏览器：直接在事件处理函数上接收一个形参，会在事件触发的时候，有浏览器自动传递实参 - addEventListener 函数相同，在事件处理函数上接收形参
+
+  ![image-20210205181317622](JavaScript.assets\image-20210205181317622.png)
+
+* IE低版本：不接收形参，使用window.event - 在标准浏览器中也可以使用 
+
+```javascript
+div.onclick = function (e) {
+    e = e || window.event
+    console.log(e)
+}
+```
+
+**鼠标事件的事件对象信息：**
+
+1. 按下按键：
+   * 0 - 左键
+   * 1 - 滚轮键
+   * 2 - 右键
+2. **==光标的坐标==**
+   * clientX 和 clientY - 光标距离可视窗口左上角的位置
+   * pageX 和 pageY - 光标距离文档的左上角的位置
+   * offsetX 和 offsetY - 光标距离元素左上角的位置 - 光标事件触发的元素（不是事件源）- 如果不想按照光标触发元素的左上角计算坐标，想以事件源来计算坐标 - > css样式 pointer-event：none
+
+> 代码运行比DOM快
+
+**键盘事件的事件对象信息：**
+
+1. 按下的是哪==**一个**==按键
+   1. 事件对象里面有一个`key` 属性表示按下的那个按钮 - IE 低版本不支持
+   2. 事件对象里面有一个叫做 `keyCode` 的属性，以编码的形式表示按下的是哪一个按键 - FireFox < 20 的版本不支持，在火狐低版本使用 `which` 属性
+2. 按下的是不是组合按键 - 四个属性值都是布尔值
+   * altKey
+   * ctrlKey
+   * shiftKey
+   * metaKey - IE 不支持
+
+## 31. 事件的传播
+
+当你在一个元素上触发行为的时候，会按照 `结构父级` 的顺序向上传播行为，直到 `window` 为止
+
+![image-20210206002115330](JavaScript.assets\image-20210206002115330.png)
+
+
+
+
+
