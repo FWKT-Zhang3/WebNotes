@@ -494,6 +494,15 @@ function func() {
 >
 > 直接在数字后面加`n`或者用BigInt()转换（只保留整数部分）
 
+**定义函数的时候可以给参数定义默认值：**
+
+```javascript
+function fn (a = 10, b) {
+    console.log(a)
+    console.log(b)
+}
+```
+
 
 
 ## 11. 预解析
@@ -948,7 +957,7 @@ var str2 = "我今年 " + age + " 岁了"
 var str3 = `I'm ${ age } years old`
 ```
 
-
+模板字符串可以调用函数 - 字符串里面的内容是函数的参数 - `${}` 把字符串切开，组合成一个数组当做第一个参数 - 然后从左到右的 `${}` 中的内容作为后面的参数
 
 **字符串的常用方法：**
 
@@ -1459,7 +1468,7 @@ H5标准中，**H5自定义属性**以“data-”开头
 
 > 在写**选项卡类**的代码块时，在遍历时给多个元素添加点击事件时需要注意，如果直接用for循环中的变量（i）传参，可能会导致所有元素传入的参数相同 - 函数定义时不使用参数的值，在调用的时候才会读取参数的值。
 >
-> 可以通过使用关键字 `this` 解决问题。或者使用数组的 `forEach(function(item, index,arr){})` 方法解决问题。
+> 可以通过使用关键字 `this` 解决问题。或者使用数组的 `forEach(function(item, index, arr){})` 方法解决问题。
 
 ### 28.5 操作元素样式
 
@@ -1981,4 +1990,27 @@ ul.onclick = function (e) {[
 
 **尽量使用 `let` 和 `const` 定义，书写代码的时候尽可能优先使用`const`**
 
-## 34
+## 34. 箭头函数
+
+匿名函数
+
+* var fn = function() {}
+* var obj = {fn: funciton() {}}
+* setTimeout(function() {}, 0)
+* setInterval(function() {}, 0)
+* [].forEach(function() {})
+* div.onclick = function() {}
+* div.addEventListener("click", function() {})
+* ...
+
+语法：() => {}
+
+特性：
+
+1. 如果只有一个形参，可以省略小括号不写：a => {}
+2. 如果代码段只有一句话，可以省略大括号不写，并且自动`return`这句话的结果
+3. 箭头函数没有`arguements`
+4. 箭头函数中没有`this` - 外部作用域的 `this` 就是箭头函数中的 `this` - 所以箭头函数中的 `this` 也无法改变 
+
+
+
