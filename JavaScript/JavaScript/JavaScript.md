@@ -2108,5 +2108,22 @@ ES6标准下，有一个对象的简写方式
 
 ### 38.3 prototype
 
-每一个函数天生自带一个属性叫做prototype，它是一个对象，可以往里面添加一些内容
+每一个函数天生自带一个属性叫做`prototype，`它是一个对象，可以往里面添加一些内容
 
+prototype 中有个属性 - constructor - 表示是哪一个构造函数伴生的原型对象
+
+### 38.4 \__proto__ 
+
+每一个函数天生自带一个属性叫做`__proto__`，指向所属构造函数的prototype
+
+```javascript
+function Person() {}
+Person.prototype.sayHi = function () {console.log("Hello world")}
+
+let p = new Person()
+console.log(p.__proto__)
+```
+
+## 38.5 对象访问机制
+
+当访问一个对象的成员的时候，如果对象自己本身有，直接返回，停止查询；如果对象本身自己没有，会自动去`__proto__`上访问。如果有就返回结果，停止查询；如果没有
