@@ -2195,3 +2195,39 @@ for in循环：
 
 
 
+## 41. ES6 的类
+
+在ES5以前，JS 使用 函数充当 构造函数（类）
+
+ES6 引入一个 类 的概念 - 就是使用一个新的关键字来定义 构造函数（类），定义完后，就是一个类，不能当做函数调用，只能通过 `new` 来得到一个对象，不和 `new` 一起用会报错
+
+```javascript
+function Person() {
+    this.name = "Jack"
+    this.age = 18
+}
+
+let p1 = new Person()
+console.log(p1)
+
+// 本质还是一个函数，是一个函数就可以直接调用，
+// 当将它当做普通函数来执行的时候，
+// 没有了创造对象的能力，this 的指向也改变了
+Person() // this -> window
+
+Class Person() {
+    // 构造器
+    constructor(name, age) {
+    	this.name = name
+    	this.age = age
+    }
+    
+    // 原型上的方法
+    init() {}
+    
+    move() {}
+}
+
+let p2 = new Person("Jack", 18)
+```
+
