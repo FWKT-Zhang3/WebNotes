@@ -26,7 +26,7 @@
     > 文档对象模型 (DOM) 是HTML和XML文档的编程接口。它提供了对文档的结构化的表述，并定义了一种方式可以使从程序中对该结构进行访问，从而改变文档的结构，样式和内容。
     > DOM 将文档解析为一个由节点和对象（包含属性和方法的对象）组成的结构集合。简言之，它会将web页面和脚本或程序语言连接起来。
     >
-    > ![DOM tree](JavaScript.assets/9064730-3b5a9a5545a02fd2.webp)
+    > ![DOM tree](JavaScript.assets\9064730-3b5a9a5545a02fd2.webp)
 
 ## 2. JS的书写
 
@@ -2486,6 +2486,7 @@ ajax：a: async, j: JavaScript, a: and, x: xml
 4. 接收响应：onload事件 - xhr.onload = function() {} - 本次请求结束以后触发
 
    xhr中的一个属性 - responseText - 就是响应体 - 使用JSON
+<<<<<<< HEAD
    
    ![image-20210220235126077](JavaScript.assets\image-20210220235126077.png)
 
@@ -2515,3 +2516,5 @@ ajax：a: async, j: JavaScript, a: and, x: xml
    * IE 低版本里面没有onload事件，只能使用onreadystatechange 事件来接收响应
 
      当 xhr.status 在 200~299之间，xhr.readyState === 4 的时候，正常使用响应体
+=======
+>>>>>>> 504421aea9c5d1333665952e87fa00259f79eb1e
