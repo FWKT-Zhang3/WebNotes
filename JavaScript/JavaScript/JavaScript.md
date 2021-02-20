@@ -2486,3 +2486,32 @@ ajax：a: async, j: JavaScript, a: and, x: xml
 4. 接收响应：onload事件 - xhr.onload = function() {} - 本次请求结束以后触发
 
    xhr中的一个属性 - responseText - 就是响应体 - 使用JSON
+   
+   ![image-20210220235126077](JavaScript.assets\image-20210220235126077.png)
+
+**ajax的状态码：**
+
+* 响应状态码：描述本次请求的状态
+* ajax状态码：描述 ajax 进行到哪一个步骤了
+* 语法：xhr.readysState
+  * 0：创建 ajax 对象成功
+  * 1：配置请求信息完成
+  * 2：请求发送出去了，响应报文回到了浏览器
+  * 3：浏览器正在解析响应报文
+  * 4：浏览器解析响应报文成功，可以正常使用responseText
+
+**ajax的兼容：**
+
+1. 创建 `ajax` 对象的兼容
+
+   * new XMLHttpRequest() - 标准浏览器
+   * new ActiveXObject("Msxml.XMLHTTP") - IE 7,8,9
+   * new ActiveXObject("Msxml2.XMLHTTP") - IE 6
+   * new ActiveXObject("Microsoft.XMLHTTP") - IE 5.5+
+   * 再向下的 IE 不支持 ajax
+
+2. 接收相应的兼容
+
+   * IE 低版本里面没有onload事件，只能使用onreadystatechange 事件来接收响应
+
+     当 xhr.status 在 200~299之间，xhr.readyState === 4 的时候，正常使用响应体
