@@ -2486,8 +2486,7 @@ ajax：a: async, j: JavaScript, a: and, x: xml
 4. 接收响应：onload事件 - xhr.onload = function() {} - 本次请求结束以后触发
 
    xhr中的一个属性 - responseText - 就是响应体 - 使用JSON
-<<<<<<< HEAD
-   
+
    ![image-20210220235126077](JavaScript.assets\image-20210220235126077.png)
 
 **ajax的状态码：**
@@ -2516,5 +2515,3 @@ ajax：a: async, j: JavaScript, a: and, x: xml
    * IE 低版本里面没有onload事件，只能使用onreadystatechange 事件来接收响应
 
      当 xhr.status 在 200~299之间，xhr.readyState === 4 的时候，正常使用响应体
-=======
->>>>>>> 504421aea9c5d1333665952e87fa00259f79eb1e
