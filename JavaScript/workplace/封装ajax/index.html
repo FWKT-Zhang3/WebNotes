@@ -18,6 +18,8 @@
             如果可用，把creXhr重新赋值为可用的那个函数
             此后，在本次会话中，调用creXhr便是直接调用可用的函数，不需要重复判断
         2.  写到数组里
+
+        懒惰模式
         */
         function creXhr() {
             console.log("vixkle")
@@ -49,6 +51,7 @@
 
             return xhr
         }
+        
         const xhr = creXhr()
         console.log(xhr)
         const xhr2 = creXhr()
