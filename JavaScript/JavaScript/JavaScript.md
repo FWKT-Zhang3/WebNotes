@@ -2537,5 +2537,5 @@ xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
 xhr.send("a=100&b=200")
 ```
 
-
+> ![image-20210221105141748](JavaScript.assets\image-20210221105141748.png)
 
