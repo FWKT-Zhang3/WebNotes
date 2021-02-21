@@ -2515,3 +2515,27 @@ ajax：a: async, j: JavaScript, a: and, x: xml
    * IE 低版本里面没有onload事件，只能使用onreadystatechange 事件来接收响应
 
      当 xhr.status 在 200~299之间，xhr.readyState === 4 的时候，正常使用响应体
+
+**发送带有参数的请求：**
+
+GET请求：GET 请求就是直接在地址栏后面拼接 queryString 方式携带参数 - open的第二个参数就是请求地址，通过open的第二个参数把要携带给后端的内容带过去
+
+POST请求：POST 携带参数是在请求体，不需要在地址栏拼接 - 数据格式无所谓，但是要和content-type配套（需要设置请求头 - application/x-www-form-urlencoded - 表单格式数据） - send里面就是请求体
+
+```javascript
+const xhr = new XMLHttpRequest()
+
+xhr.open("POST", "./server/post.php")
+
+xhr.onload = function () {
+    console.log(JSON.parse(xhr.responseText))
+}
+
+// 设置请求头
+xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
+
+xhr.send("a=100&b=200")
+```
+
+
+

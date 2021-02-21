@@ -7,12 +7,54 @@
     <title>Document</title>
 </head>
 <body>
+    <form>
+        用户名：<input type="text" name="username" autocomplete="off"><br>
+        密码：<input type="password" name="password" autocomplete="off"><br>
+        <button>登录</button>
+    </form>
     
     <script>
-        // 1. 创建 XMLHttpRequest 对象
-        const xhr = new XMLHttpRequest()
-        // 2. 配置
-        xhr.open("GET", "")
+        /*
+            1. 获取元素
+            2. 绑定事件
+                => submit 事件
+                => button 的点击事件
+                => 阻止表单的默认自动提交
+            3.  获取用户输入的内容
+            4.  表单验证
+                => 非空验证
+                => 格式验证
+            5. 提交到后端
+        */
+
+        // 1. 获取元素
+        const nameInp = document.querySelector("input[name=username]")
+        const pwdInp = document.querySelector("input[name=password]")
+        const form = document.querySelector("form")
+
+        // 2. 绑定事件
+        form.addEventListener("submit", e => {
+            e = e || window.event
+
+            // 阻止默认提交
+            e.preventDefault()
+
+            // 3. 获取用户输入数据
+            const username = nameInp.value
+            const password = pwdInp.value
+
+            // 4. 简单地验证
+            if (!username || !password) return alert("输入用户名密码！")
+            
+            // 5. 提交到后端
+            const xhr = XMLHttpRequest()
+            xhr.open("POST", "./login.php")
+            xhr.onload = function() {
+
+            }
+            xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
+            xhr.send()
+        })
 </script>
 </body>
 </html>
