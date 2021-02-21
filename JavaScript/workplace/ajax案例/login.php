@@ -1,4 +1,5 @@
 <?php
+    // 没有 php 没有测试
     // 后端业务逻辑
     // 1. 接收参数
     if (!isset($_POST["username"]) || !isset($_POST["password"])) {
