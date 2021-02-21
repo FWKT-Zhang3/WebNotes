@@ -25,6 +25,7 @@
                 => 非空验证
                 => 格式验证
             5. 提交到后端
+            6. 操作
         */
 
         // 1. 获取元素
@@ -47,13 +48,19 @@
             if (!username || !password) return alert("输入用户名密码！")
             
             // 5. 提交到后端
-            const xhr = XMLHttpRequest()
+            const xhr = new XMLHttpRequest()
             xhr.open("POST", "./login.php")
             xhr.onload = function() {
-
+                // console.log(xhr.responseText)
+                const {message, code} = JSON.parse(xhr.responseText)
+                if (code === 1) {
+                    // 进一步操作
+                } else if (code === 2) {
+                    alert("用户名/密码错误")
+                }
             }
             xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
-            xhr.send()
+            xhr.send(`username=${username}&password=${password}`)
         })
 </script>
 </body>
