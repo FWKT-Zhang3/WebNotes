@@ -2702,7 +2702,7 @@ Promise是 ES6内置的构造函数
 * resolve - 成功的回调函数
 * reject - 失败的回调函数
 
-实例化对象有两个方法：
+实例化对象的方法：
 
 1. then(function() {}) - function 传递给了实例化的resolve
 2. catch(function() {}) - function传递给了实例化的reject
@@ -2722,3 +2722,29 @@ Promise是 ES6内置的构造函数
 ![image-20210222211118665](JavaScript.assets\image-20210222211118665.png)
 
 ![image-20210222211612251](JavaScript.assets\image-20210222211612251.png)
+
+Promise.all([p1, p2,...])
+
+* 把多个promise封装成一个，then里面会接收所有promise完成的结果，以数组形式返回
+* 缺点：必须全部成功，任何一个失败，则全部数据无法获取
+
+## 48. async / await
+
+ES7的语法 - ES6 提出的方案，但是实现的并不好，在ES7的时候优化过
+
+1. async - 修饰函数，表明函数异步
+
+2. await - 必须有async关键字，await才能在函数内部使用 - 等待的必须是一个promise对象，不然没有意义
+
+   当满足了以上条件，promise对象的本该在then里面接收的结果，可以直接定义变量接收，promise的异步代码没有结束之前，不会继续向下执行
+
+   ![image-20210223002552115](JavaScript.assets\image-20210223002552115.png)
+
+目的：
+
+1. 回调地狱的终极解决办法
+
+   ![image-20210223002953523](JavaScript.assets\image-20210223002953523.png)
+
+2. 把异步代码写的看起来像同步代码
+
