@@ -2674,3 +2674,51 @@ jsonp常见面试题：
 解决：由服务器告诉浏览器，这个域名允许请求我的内容 - 和前端没有任何关系
 
 在服务端请求头里写上就好了
+
+## 46. 回调函数 callback
+
+定义：把A函数当做参数传递到B函数内部，在B函数内部以形参的方式调用A函数 - 可读性和可维护性不强
+
+
+
+![image-20210222200930694](JavaScript.assets\image-20210222200930694.png)
+
+回调地狱 - 不停地在一个回调函数里面去进行第二个回调函数的操作
+
+![image-20210222201045127](JavaScript.assets/image-20210222201045127.png)
+
+## 47. Promise
+
+状态：
+
+* 持续 - pending
+* 成功 - resolved
+* 失败 - rejected
+
+Promise是 ES6内置的构造函数
+
+语法：new Promise(function(resolve, reject) { 要异步执行的事情 })
+
+* resolve - 成功的回调函数
+* reject - 失败的回调函数
+
+实例化对象有两个方法：
+
+1. then(function() {}) - function 传递给了实例化的resolve
+2. catch(function() {}) - function传递给了实例化的reject
+
+![image-20210222205946796](JavaScript.assets\image-20210222205946796.png)
+
+![image-20210222210627523](JavaScript.assets\image-20210222210627523.png)
+
+这种写法并不能解决回调地狱
+
+进阶语法：
+
+在第一个then里面返回一个新的promise对象，可以在这个then的后面继续来一个then来接收第一个then里面promise对象的结果
+
+![image-20210222211054188](JavaScript.assets\image-20210222211054188.png)
+
+![image-20210222211118665](JavaScript.assets\image-20210222211118665.png)
+
+![image-20210222211612251](JavaScript.assets\image-20210222211612251.png)
