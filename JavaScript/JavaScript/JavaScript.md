@@ -3050,3 +3050,20 @@ const m = new Map([
 
 销毁闭包空间：让外部接收的变量重新赋值
 
+
+
+**==闭包的应用 - 沙箱模式==**
+
+解决：变量私有化以后的访问和操作
+
+![image-20210223190121379](JavaScript.assets\image-20210223190121379.png)
+
+![image-20210223190414630](JavaScript.assets\image-20210223190414630.png)
+
+闭包的语法糖：
+
+getter获取器和setter设置器
+
+> 语法糖：使用起来方便，看起来不舒服
+
+![image-20210223191049769](JavaScript.assets\image-20210223191049769.png)
