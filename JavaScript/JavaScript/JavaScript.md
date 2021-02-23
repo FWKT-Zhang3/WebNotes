@@ -3067,3 +3067,18 @@ getter获取器和setter设置器
 > 语法糖：使用起来方便，看起来不舒服
 
 ![image-20210223191049769](JavaScript.assets\image-20210223191049769.png)
+
+![image-20210223194507031](JavaScript.assets\image-20210223194507031.png)
+
+函数柯理化：
+
+一种函数的封装形式
+
+把一个函数的两个参数拆开成为两个函数，每个函数一个参数
+
+![image-20210223201509024](JavaScript.assets\image-20210223201509024.png)
+
+利用闭包循环绑定：
+
+![image-20210223201919762](JavaScript.assets\image-20210223201919762.png)
+
