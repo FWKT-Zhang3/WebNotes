@@ -2748,3 +2748,99 @@ ES7的语法 - ES6 提出的方案，但是实现的并不好，在ES7的时候�
 
 2. 把异步代码写的看起来像同步代码
 
+## 49. generator
+
+长得很像函数，但是不是函数，是函数生成器 - 迭代器
+
+语法：
+
+* 在定义函数的时候，在 `function` 后面或者函数名前面加一个星号（*）
+* 函数内部可以使用一个yield关键字
+  * 类似于 return - 可以制造一个结果
+  * 让generator暂停 - 再次回到这个generator的时候，从上次yield继续向后执行代码
+
+generator的返回值是一个迭代器：
+
+* 包含一个next()方法 - 每一次next执行，就会到下一个yield位置为止
+
+```javascript
+// 有了星号以后，fn不再是一个函数
+function* fn() {
+    console.log("我执行了")
+}
+
+function* fn2() {
+    console.log("我是第一段代码")
+    yield "第一段结束"
+    
+    console.log("我是第二段代码")
+    yield "第二段结束"
+    
+    console.log("我是第三段代码")
+    return "第三段结束"
+}
+
+const result = fn2()
+
+// 第一次
+// 从fn的开头到第一个yield
+// 把 yield 后面的东西当做返回值
+const first = result.next() // 这里会打印 “我是第一段代码”
+//first 里面有两个属性，done - 是否全部完成，value - 第一个yield后面的字符串 - “第一段结束”
+
+```
+
+## 50. for of 循环
+
+for...of 循环 - 为了遍历迭代器
+
+* for (let value of 数组) {}
+
+![image-20210223103336962](JavaScript.assets\image-20210223103336962.png)
+
+## 51. set数据结构
+
+ES6新增
+
+迭代器结构数据
+
+可以在实例化的时候传递数组，数组中的每一个数据就是set里面的每一个数据
+
+特点：不接受重复数据 - 去重
+
+常用方法：
+
+1. add()
+2. delete()
+3. has()
+4. clear()
+5. forEach(function(item, item, set))
+6. size 属性
+
+可以用for...of遍历
+
+## 52. Map数据结构
+
+因为Object类型只能存储字符串作为key，ES6出现了Map数据结构， 可以使用复杂数据类型作为key d
+
+实例化的时候，接收一个二维数组：
+
+* 里层数组的[0]作为key
+* 里层数组的[1]作为value
+
+```javascript
+const m = new Map([
+    ["name", "jack"],
+    [{name: "jack"}, {name: "rose"}]
+])
+```
+
+方法：
+
+1. m.set(key, value)
+2. m.get(key)
+3. m.delete(key)
+4. clear()
+5. forEach(function(value, key, map) {})
+
+可用 for ... of 遍历 - 遍历出的是 一对键值对
