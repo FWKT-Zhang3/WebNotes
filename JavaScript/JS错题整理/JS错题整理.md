@@ -212,4 +212,121 @@
 
 12. ![img](JS错题整理.assets/6690215_1502068310572_072774B6B658B3603E1AA7198722775C)
 
-13. 
+13. ```
+    alert($(window).height()); //浏览器当前窗口可视区域高度 
+    alert($(document).height()); //浏览器当前窗口文档的高度 
+    alert($(document.body).height());//浏览器当前窗口文档body的高度 
+    alert($(document.body).outerHeight(true));//浏览器当前窗口文档body的总高度 包括border padding margin 
+    alert($(window).width()); //浏览器当前窗口可视区域宽度 
+    alert($(document).width());//浏览器当前窗口文档对象宽度 
+    alert($(document.body).width());//浏览器当前窗口文档body的高度 
+    alert($(document.body).outerWidth(true));//浏览器当前窗口文档body的总宽度 包括border padding margin 
+    ```
+
+14. [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD)是"Asynchronous Module Definition"的缩写，意思就是"异步模块定义"。它采用异步方式加载模块，模块的加载不影响它后面语句的运行。所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成之后，这个回调函数才会运行。
+    AMD也采用require()语句加载模块，但是不同于CommonJS。
+    主要有两个Javascript库实现了AMD规范：[require.js](http://requirejs.org/)和[curl.js](https://github.com/cujojs/curl)。
+    参考链接：http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html
+
+    AMD 是 RequireJS 在推广过程中对模块定义的规范化产出。
+    CMD 是 SeaJS 在推广过程中对模块定义的规范化产出。
+    区别：
+    \1. 对于依赖的模块，AMD 是**提前执行**，CMD 是**延迟执行**。
+    \2. CMD 推崇**依赖就近**，AMD 推崇**依赖前置**。
+
+    // CMD
+    define(function(require, exports, module) {
+    var a = require('./a')
+    a.doSomething()
+    // 此处略去 100 行
+    var b = require('./b') // 依赖可以就近书写
+    b.doSomething()
+    // ...
+    })
+
+    
+
+    // AMD 默认推荐的是
+    define(['./a', './b'], function(a, b) { // 依赖必须一开始就写好
+    a.doSomething()
+    // 此处略去 100 行
+    b.doSomething()
+    ...
+    })
+
+15. ![img](JS错题整理.assets\575261407_1581644656315_0ABBCEA6A0A2F0AE328C3B326FAC8A13)
+
+16. 运算中，+号，数字隐式转换成字符串。其余的运算符号是字符串隐式转换成数字。
+
+17. window.onload = function(){
+
+      //首先获得下拉框的节点对象；
+
+      var obj = document.getElementById("obj");
+
+      //1.如何获得当前选中的值？：
+
+      var value = obj.value;
+
+      //2.如何获得该下拉框所有的option的节点对象
+
+      var options = obj.options;
+
+      //注意：得到的options是一个对象数组
+
+      //3.如何获得第几个option的value值?比如我要获取第一option的value,可以这样：
+
+      var value1 =options[0].value;
+
+      //4.如何获得第几个option的文本内容?比如我要获取第一option的文本,可以这样：
+
+      var text1 = options[0].text;
+
+      //5.如何获得当前选中的option的索引？
+
+      var index = obj.selectedIndex;
+
+      //6.如何获得当前选中的option的文本内容？
+
+      //从第2个问题，我们已经获得所有的option的对象数组options了
+
+      //又从第5个问题，我们获取到了当前选中的option的索引值
+
+      //所以我们只要同options[index]下标的方法得到当前选中的option了
+
+      var selectedText =options[index].text;
+
+    }
+
+18. 加号优先级高于 三目运算。低于括号。 
+
+19. **代码回收规则如下：**
+
+    **1.全局变量不会被回收。**
+
+    **2.局部变量会被回收，也就是函数一旦运行完以后，函数内部的东西都会被销毁。**
+
+    **3.只要被另外一个作用域所引用就不会被回收**
+
+20. undefined和null与任何有意义的值比较返回的都是false，但是null与undefined之间互相比较返回的是true
+
+21. ```
+    console.``log``(1);
+    let a = setTimeout(() => {console.``log``(2)}, 0);
+    console.``log``(3);
+    Promise.resolve(4).then(b => {
+    console.``log``(b);
+    clearTimeout(a);
+    });
+    console.``log``(5);
+    ```
+
+    同步→异步→回调
+
+    promise是异步微任务，
+
+    setTimeout是异步宏任务，
+
+    微任务比宏任务先执行，所以取消了定时器回调
+
+22. forEach会忽略掉 [empty,....]
