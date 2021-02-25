@@ -1,8 +1,12 @@
-# JavaScript Notes
+<p style="font-size:3em;text-align:center">JavaScript Notes</p>
 
-###### -- Max Zhang
+<p style="text-align:center;color:skyblue">-- Max Zhang</p>
 
-## 了解 JS:
+[TOC]
+
+
+
+## 1. 了解 JS:
 
 - 在一个页面中
 
