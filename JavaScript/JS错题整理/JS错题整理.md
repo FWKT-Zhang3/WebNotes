@@ -471,4 +471,73 @@
 
     搜索引擎的检索程序无法解读 iframe。另外，iframe 本身不是动态语言，样式和脚本都需要额外导入。综上，iframe 应谨慎使用。
 
-37. 
+37. **svg**
+
+    SVG 指可伸缩矢量图形 (Scalable Vector Graphics)。
+    SVG 用来定义用于网络的基于矢量的图形。
+    SVG 使用 XML 格式定义图形。
+    SVG 图像在放大或改变尺寸的情况下其图形质量不会有所损失。
+    SVG 是万维网联盟的标准。
+    SVG 与诸如 DOM 和 XSL 之类的 W3C 标准是一个整体。
+
+    **canvas**
+
+    HTML5 的 canvas 元素使用 JavaScript 在网页上绘制图像。画布是一个矩形区域，您可以控制其每一像素。canvas 拥有多种绘制路径、矩形、圆形、字符以及添加图像的方法。
+
+    
+
+    **功能区别**
+
+    SVG 是一种使用 XML 描述 2D 图形的语言。
+    SVG 基于 XML，这意味着 SVG DOM 中的每个元素都是可用的。您可以为某个元素附加 JavaScript 事件处理器。
+    在 SVG 中，每个被绘制的图形均被视为对象。如果 SVG 对象的属性发生变化，那么浏览器能够自动重现图形。
+
+    Canvas 通过 JavaScript 来绘制 2D 图形。
+    Canvas 是逐像素进行渲染的。
+    在 canvas 中，一旦图形被绘制完成，它就不会继续得到浏览器的关注。如果其位置发生变化，那么整个场景也需要重新绘制，包括任何或许已被图形覆盖的对象。
+
+    **技术区别**
+
+    canvas不依赖分辨率。
+    canvas支持事件处理器。
+    canvas最适合带有大型渲染区域的应用程序（比如谷歌地图）。
+    canvas复杂度高会减慢渲染速度（任何过度使用 DOM 的应用都不快）。
+    canvas不适合游戏应用**。**
+
+    svg依赖分辨率。
+    svg不支持事件处理器。
+    svg弱的文本渲染能力。
+    svg能够以 .png 或 .jpg 格式保存结果图像。
+    svg最适合图像密集型的游戏，其中的许多对象会被频繁重绘**。**
+
+38. resolve和reject两种状态只会触发一种，触发了一种另一种就不会触发
+
+39. push() 方法可向数组的末尾添加一个或多个元素，并返回新的长度。
+
+40. 事件触发顺序则是先捕获后冒泡
+
+41. [前缀、中缀、后缀表达式](https://www.cnblogs.com/zzliu/p/10801113.html)
+
+42. src: 一般是把资源嵌入到文本里
+
+    href： 一般是与某个资源建立连接
+
+43. instanceof 主要的实现原理就是只要右边变量的 prototype 在左边变量的原型链上即可。因此，instanceof 在查找的过程中会遍历左边变量的原型链，直到找到右边变量的 prototype，如果查找失败，则会返回 false，告诉我们左边变量并非是右边变量的实例。
+
+    ```javascript
+    function new_instance_of(leftVaule, rightVaule) { 
+        let rightProto = rightVaule.prototype; // 取右表达式的 prototype 值
+        leftVaule = leftVaule.__proto__; // 取左表达式的__proto__值
+        while (true) {
+        	if (leftVaule === null) {
+                return false;	
+            }
+            if (leftVaule === rightProto) {
+                return true;	
+            } 
+            leftVaule = leftVaule.__proto__ 
+        }
+    }
+    ```
+
+    
