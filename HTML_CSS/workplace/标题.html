@@ -5,9 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        div {
+            width:100px;
+            height:100px;
+            background-color: aqua;
+            border:1px solid black;
+            border-radius:100% 0 0 0;
+        }
+    </style>
 </head>
 <body>
     <h1>title</h1>
-    <kbd>menu</kbd>
+    <div id="box1"></div>
+    <br>
+    <div id="box2"></div>
+    <script>
+        const box1 = document.querySelector("#box1")
+        const box2 = document.querySelector("#box2")
+        
+
+        window.onscroll = function() {
+            var scroll_Top = document.documentElement.scrollTop || document.body.scrollTop 
+            let boxHeight = box1.offsetHeight
+            let boxTop = box1.offsetTop
+            let clientHeight = document.documentElement.clientHeight
+            let diff = boxHeight + boxTop - scroll_Top - clientHeight
+            if (diff < 0) {
+                console.log("biu")
+            }
+        }
+
+    </script>
 </body>
 </html>
