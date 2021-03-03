@@ -8,5 +8,32 @@
 </head>
 <body>
     <script src="script.js"></script>
+    <script>
+function getUrlParam(sUrl, sKey) {
+    let res
+    if (sKey === null) {
+        let temp = sUrl.split("?")
+        if (temp[2] === "") res = {}
+        else {
+            temp = temp[2].split("&")
+            for (let k = 0; k < temp.length; k++) {
+                let t = temp[k].split("=")
+                if (k = temp.length - 1) {
+                    let a = t[1].split("#")
+                    t[1] = a[0]
+                }
+                res[t[0]] = t[1]
+            }
+        }
+        
+    } else {
+        
+           
+    }
+    return res
+}
+    let a = getUrlParam('http://www.nowcoder.com?key=1&key=2&key=3&key=4&test=4#hehe', 'key')
+    console.log(a)
+    </script>
 </body>
 </html>
