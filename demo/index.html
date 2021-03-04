@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #sup {
+            width: 400px;
+            height: 400px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        #sup > div {
+            width: 30px;
+            height: 30px;
+            margin: 5px;
+            background-color: white;
+            box-shadow: 3px 3px 7px gray;
+            border-radius: 3px;
+        }
+
+        #sup > div.active {
+            background-color: skyblue;
+        }
+
+        #sup > div.surround {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <div id = "sup">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <script>
+        const sup = document.getElementById("sup")
+        const boxes = document.querySelectorAll("#sup > div")
+        
+        for (let i = 0; i < boxes.length; i++) {
+            boxes[i].number = i
+        }
+
+        sup.onclick = function(e) {
+            e = e || window.e
+            const target = e.target || e.srcElement
+            boxes.forEach((item) => {
+                if (item.number === target.number) {
+                    item.className = "active"
+                } else {
+                    item.className = ""
+                }
+            })
+            solveSurround(boxes, target.number)
+        }
+        
+        function solveSurround(arr, n) {
+            let temp = []
+            if (n % 10 === 0) {
+                temp = []
+            }
+            const temp = [-11, -10, -9, -1, 1, 9, 10, 11]
+            for (let key in temp) {
+                if (arr[n + temp[key]] !== undefined) {
+                    arr[n + temp[key]].className = "surround"
+                }  
+            }
+        }
+
+    </script>
+</body>
+</html>
