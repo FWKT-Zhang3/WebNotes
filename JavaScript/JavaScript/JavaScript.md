@@ -376,7 +376,7 @@ while (条件) {
 }
 ```
 
-**dowhile**：
+**do...while**：
 
 ```javascript
 do {
