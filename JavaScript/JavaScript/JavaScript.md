@@ -1440,7 +1440,7 @@ Document Object Model 文档对象模型
 ### 28.2 获取DOM元素
 
 1. 非常规标签
-   * HTML - document.doc1umentElement
+   * HTML - document.documentElement
    * head - document.head
    * body - document.body
 2. 常规标签 - 不是不能获取非常规标签，只是一般不这么用
