@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue/vue.js"></script>
+</head>
+<body>
+    <div id="box1">
+        {{message}} 
+    </div>
+    <div id="box2">
+        <span v-bind:title="hover">
+            鼠标悬停查看
+        </span>
+    </div>
+    <div id="box3">
+        <p v-if="seen">
+            背背背背背起了行囊
+        </p>
+    </div>
+    <div id="box4">
+        <ol>
+            <li v-for="todo in todos">
+                {{todo.text}}
+            </li>
+        </ol>
+    </div>
+    <div id="box5">
+        <p> {{message}} </p>
+        <button v-on:click="reverseMessage">乾坤大挪移</button>
+    </div>
+    <div id="box6">
+        <p> {{message}} </p>
+        <input v-model="message">
+    </div>
+    <div id="box7">
+        <ol>
+            <!-- 创建一个 todo-item 的实例 -->
+            <!-- <todo-item></todo-item> -->
+
+            <!--
+            现在我们为每个 todo-item 提供 todo 对象
+            todo 对象是变量，即其内容可以是动态的。
+            我们也需要为每个组件提供一个“key”，稍后再
+            作详细解释。
+            -->
+            <todo-item
+                v-for="item in groceryList"
+                v-bind:todo="item"
+                v-bind:key="item.id"></todo-item>
+        </ol>
+    </div>
+    <script>
+        // 声明式渲染
+        var app = new Vue({
+            el: "#box1",
+            data: {
+                message : "Hello Vue.js!",
+            }
+        })
+
+        // v-bind 属性被称为指令，指令带有前缀 v-，以表示它们是 Vue 提供的特殊 attribute
+        var app2 = new Vue({
+            el: "#box2",
+            data: {
+                hover: "狗狗祟祟"
+            }
+        })
+        // v-if 条件
+        var app3 = new Vue({
+            el: "#box3",
+            data: {
+                seen: true,
+            }
+        })
+        // v-for 绑定数组数据渲染一个项目列表
+        var app4 = new Vue({
+            el: "#box4",
+            data: {
+                todos: [
+                    {text: "两只老虎爱跳舞  诶！"},
+                    {text: "小兔子乖乖拔萝卜  吔~~"},
+                    {text: "我跟着小鸭子学走路"},
+                    {text: "balabala"}
+                ]
+            }
+        })
+        // v-on 添加事件监听器
+        var app5 = new Vue({
+            el: "#box5",
+            data: {
+                message: "Hello Vue.js!"
+            },
+            methods: {
+                reverseMessage: function() {
+                    this.message = this.message.split(" ").reverse().join(" ")
+                }
+            }
+        })
+        // v-model 表单输入和应用状态之间的双向绑定
+        var app6 = new Vue({
+            el: "#box6",
+            data: {
+                message: "Hello Vue.js!"
+            }
+        })
+        // 定义组件
+        // Vue.component("todo-item", {
+        //     template: "<li>这里有300两</li>"
+        // }) 
+        // 这样会为每个待办项渲染同样的文本，这看起来并不炫酷
+        // 我们应该能从父作用域将数据传到子组件才对。
+        // 让我们来修改一下组件的定义，使之能够接受一个 prop
+        Vue.component("todo-item", {
+            // todo-item 组件现在接受一个
+            // "prop"，类似于一个自定义 attribute
+            // 这个 prop 名为 todo
+            props:['todo'],
+            template: "<li>{{ todo.text }}</li>"
+        })
+
+        var app7 = new Vue({
+            el: "#box7",
+            data: {
+                groceryList: [
+                    {id:0, text: "蔬菜"},
+                    {id:1, text: "奶酪"},
+                    {id:2, text: "拔雹局"},
+                ]
+            }
+        })
+    </script>
+</body>
+</html>
