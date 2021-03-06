@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue/vue.js"></script>
+</head>
+<body>
+    <!-- no key -->
+    <p><strong>No key example</strong></p>
+    <div id="no-key-example">
+        <template v-if="loginType === 'username'">
+            <label>Username</label>
+            <input placeholder="Enter your username">
+        </template>
+        <template v-else>
+            <label>Email</label>
+            <input placeholder="Enter your email address">
+        </template>
+        <br>
+        <button @click="toggleLoginType">切换登录方式</button>
+    </div>
+
+    <br>
+    <br>
+
+    <!-- no key -->
+    <p><strong>Key example</strong></p>
+    <div id="key-example">
+        <template v-if="loginType === 'username'">
+            <label>Username</label>
+            <input placeholder="Enter your username" key="username-input">
+        </template>
+        <template v-else>
+            <label>Email</label>
+            <input placeholder="Enter your email address" key="email-input">
+        </template>
+        <br>
+        <button @click="toggleLoginType">切换登录方式</button>
+    </div>
+
+    
+    <script>
+        // 用key管理可复用元素
+        
+        var vm = new Vue({
+            el: "#no-key-example",
+            data: {
+                loginType: "username"
+            },
+            methods: {
+                toggleLoginType: function() {
+                    return this.loginType = this.loginType === "username" ? "email" : "username"
+                }
+            }
+        })
+        var vm = new Vue({
+            el: "#key-example",
+            data: {
+                loginType: "username"
+            },
+            methods: {
+                toggleLoginType: function() {
+                    return this.loginType = this.loginType === "username" ? "email" : "username"
+                }
+            }
+        })
+    </script>
+</body>
+</html>
