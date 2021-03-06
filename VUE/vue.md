@@ -560,7 +560,7 @@ HTML 将被渲染为：
 <p class="foo bar active">Hi</p>
 ```
 
-## [绑定内联样式](https://cn.vuejs.org/v2/guide/class-and-style.html#绑定内联样式)
+### 绑定内联样式
 
 ### [对象语法](https://cn.vuejs.org/v2/guide/class-and-style.html#对象语法-1)
 
