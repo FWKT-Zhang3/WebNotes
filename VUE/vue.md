@@ -611,3 +611,68 @@ data: {
 ```
 
 这样写只会渲染数组中最后一个被浏览器支持的值。在本例中，如果浏览器支持不带浏览器前缀的 flexbox，那么就只会渲染 `display: flex`。
+
+## 4. 条件渲染
+
+`v-if` 指令用于条件性地渲染一块内容。这块内容只会在指令的表达式返回 truthy 值的时候被渲染。
+
+```
+<h1 v-if="awesome">Vue is awesome!</h1>
+```
+
+也可以用 `v-else` 添加一个“else 块”：
+
+```
+<h1 v-if="awesome">Vue is awesome!</h1>
+<h1 v-else>Oh no 😢</h1>
+```
+
+### [在 `
+
+因为 `v-if` 是一个指令，所以必须将它添加到一个元素上。但是如果想切换多个元素呢？此时可以把一个 `<template>` 元素当做不可见的包裹元素，并在上面使用 `v-if`。最终的渲染结果将不包含 `<template>` 元素。
+
+```
+<template v-if="ok">
+  <h1>Title</h1>
+  <p>Paragraph 1</p>
+  <p>Paragraph 2</p>
+</template>
+```
+
+### [`v-else`](https://cn.vuejs.org/v2/guide/conditional.html#v-else)
+
+你可以使用 `v-else` 指令来表示 `v-if` 的“else 块”：
+
+```
+<div v-if="Math.random() > 0.5">
+  Now you see me
+</div>
+<div v-else>
+  Now you don't
+</div>
+```
+
+`v-else` 元素必须紧跟在带 `v-if` 或者 `v-else-if` 的元素的后面，否则它将不会被识别。
+
+### [`v-else-if`](https://cn.vuejs.org/v2/guide/conditional.html#v-else-if)
+
+> 2.1.0 新增
+
+`v-else-if`，顾名思义，充当 `v-if` 的“else-if 块”，可以连续使用：
+
+```
+<div v-if="type === 'A'">
+  A
+</div>
+<div v-else-if="type === 'B'">
+  B
+</div>
+<div v-else-if="type === 'C'">
+  C
+</div>
+<div v-else>
+  Not A/B/C
+</div>
+```
+
+类似于 `v-else`，`v-else-if` 也必须紧跟在带 `v-if` 或者 `v-else-if` 的元素之后。
