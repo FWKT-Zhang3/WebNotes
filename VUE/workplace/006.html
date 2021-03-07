@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue/vue.js"></script>
+</head>
+<body>
+    <div id="demo">
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <label for="checkbox"> {{checked? "给跪了" : "你过来啊！"}} </label>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#demo",
+            data: {
+                checked:false
+            }
+        })
+    </script>
+</body>
+</html>
