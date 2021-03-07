@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue/vue.js"></script>
+</head>
+<body>
+    <div id="demo">
+        <label for="cinput"></label>
+        <custom-input id="cinput" v-model="searchInput"></custom-input>
+    </div>  
+    <div id="demo2">
+        <alert-box>Something happend!</alert-box>
+    </div>
+    <script>
+        Vue.component("custom-input",{
+            props: ["value"],
+            template:`
+            <div class="cus-box">
+                <input
+                    v-bind:value="value"
+                    v-on:input="$emit('input', $event.target.value)"
+                >   
+                <br>
+                <span>{{value}}</span>
+            </div>
+            `
+        })
+        var vm = new Vue({
+            el: "#demo",
+            data: {
+                searchInput: ""
+            }
+        })
+        Vue.component("alert-box", {
+            template: `
+                <div class="demo-alert-box">
+                    <strong>Error</strong>   
+                    <slot></slot> 
+                </div>
+            `
+        })
+        var vm2 = new Vue({
+            el: "#demo2"
+        })
+    </script>
+</body>
+</html>
