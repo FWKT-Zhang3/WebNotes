@@ -1463,7 +1463,7 @@ H5标准中，**H5自定义属性**以“data-”开头
    * getAttribute("属性名")
    * removeAttribute("属性名")
 
-3. H5自定义属性 - 每个元素有个`dataset`属性，里面包含了所有H5自定义属性，其中的key，不带“data-”
+3. H5自定义属性 - 每个元素有个 `dataset` 属性，里面包含了所有H5自定义属性，其中的key，不带“data-”
 
    ```javascript
    // 设置元素标签上的data-a属性，值为1
@@ -1506,7 +1506,7 @@ function getStyle(ele, style) {
 }
 ```
 
-**设置元素样式** - 只能设置元素行内样式 - 前段 JS 理论上是不可以设置元素的非行内样式
+**设置元素样式** - 只能设置元素行内样式 - 前端 JS 理论上是不可以设置元素的非行内样式
 
 - 元素.style.样式名 = 值
 
@@ -3038,7 +3038,7 @@ const m = new Map([
 2. 函数内部直接或者间接返回一个函数
 3. 内布函数操作（访问，赋值）着外部函数的变量
 
-当当三个条件都满足的时候，我们管这个内部的函数叫做外部函数的**闭包函数**
+当三个条件都满足的时候，我们管这个内部的函数叫做外部函数的**闭包函数**
 
 ![image-20210223184713542](JavaScript.assets\image-20210223184713542.png)
 
@@ -3242,3 +3242,17 @@ ES6把继承改变成了关键字 - 封装的寄生式组合继承
 9. 类 - super和extends
 10. set
 11. symbol
+
+```python
+number_of_entries = int(input("please enter the number of numbers: "))
+count = number_of_entries
+theSum = 0
+
+while number_of_entries > 0:
+    theSum += int(input("Please enter the number: "))
+    number_of_entries--
+    
+eva = theSum / count
+print(eva)
+```
+

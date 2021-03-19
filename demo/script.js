@@ -36,3 +36,4 @@ function method(a) {
 window.onload = function () {
     method([1,2,3,4])
 }
+

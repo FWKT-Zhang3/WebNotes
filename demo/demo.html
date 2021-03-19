@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var levelOrder = function(root) {
+    let que = [root]
+    let res = []
+    let temp, level = []
+    while (que.length > 0) {
+        while (que.length > 0) {
+            temp = que[0]
+            level.push(temp)
+            que.shift()
+            if (temp.left) level.push(temp.left)
+            if (temp.right) level.push(temp.right)
+        }
+        if (level.length > 0) {
+            que.push(...level)
+            level = []
+        }
+    }
+    return res
+};
+    </script>   
+</body>
+</html>
